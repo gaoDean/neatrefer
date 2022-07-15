@@ -163,7 +163,6 @@ static int db_parse(void)
 	while ((ln = dbget()))
 		if (ln[0] != '\n')
 			db_ref(&refs[refs_n++], ln);
-	printf("rea: %s\n", ref_label(&refs[3]));
 	return 0;
 }
 
@@ -548,15 +547,9 @@ static char *usage =
 	"\t-a xy	 \tauthor-year citation macro (\\*[xy label])\n"
 	"\t-sa		 \tsort by author last names\n";
 
-int test() {
-	char pat[] = " eat in";
-	printf("result: %d\n", refer_seen(pat));
-	return 0;
-}
 
 int main(int argc, char *argv[])
 {
-	/* return test(); */
 	int i, j;
 	for (i = 1; i < argc; i++) {
 		switch (argv[i][0] == '-' ? argv[i][1] : 'h') {
